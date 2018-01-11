@@ -40,6 +40,12 @@
 			<version>${HikariCP.version}</version>
 		</dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
 		<!-- mybatis-plus begin -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
@@ -65,14 +71,8 @@
 			<version>2.9.0</version>
             <scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>${fastjson.version}</version>
-			<scope>test</scope>
-		</dependency>
 
-		<!-- Code generator-->
+		<!-- Code generator test sample-->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
