@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 /**
  * <p>
- *     测试生成代码
+ * 测试生成代码
  * </p>
  *
  * @author K神
@@ -21,12 +21,13 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 public class GeneratorServiceEntity {
 
     @Test
-    public void generateCode(){
+    public void generateCode() {
         String packageName = "com.baomidou.springboot";
-        generateByTables(packageName, "user", "role");
+        boolean serviceNameStartWithI = false;//user -> UserService, 设置成true: user -> IUserService
+        generateByTables(serviceNameStartWithI, packageName, "user", "role");
     }
 
-    private void generateByTables(String packageName, String... tableNames){
+    private void generateByTables(boolean serviceNameStartWithI, String packageName, String... tableNames) {
         GlobalConfig config = new GlobalConfig();
         String dbUrl = "jdbc:mysql://localhost:3306/mybatis-plus";
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
@@ -46,6 +47,9 @@ public class GeneratorServiceEntity {
                 .setAuthor("K神带你飞")
                 .setOutputDir("d:\\codeGen")
                 .setFileOverride(true);
+        if (!serviceNameStartWithI) {
+            config.setServiceName("%sService");
+        }
         new AutoGenerator().setGlobalConfig(config)
                 .setDataSource(dataSourceConfig)
                 .setStrategy(strategyConfig)
@@ -55,5 +59,9 @@ public class GeneratorServiceEntity {
                                 .setController("controller")
                                 .setEntity("entity")
                 ).execute();
+    }
+
+    private void generateByTables(String packageName, String... tableNames) {
+        generateByTables(true, packageName, tableNames);
     }
 }
