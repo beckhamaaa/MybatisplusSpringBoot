@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
+import com.baomidou.mybatisplus.annotations.SqlParser;
 import com.baomidou.springboot.SuperMapper;
 import com.baomidou.springboot.entity.User;
 
@@ -17,6 +18,10 @@ public interface UserMapper extends SuperMapper<User> {
      */
     int deleteAll();
 
+    /**
+     * 注解 @SqlParser(filter = true) 过滤多租户解析
+     */
+    @SqlParser(filter = true)
     @Select("select test_id as id, name, age, test_type from user")
     List<User> selectListBySQL();
 

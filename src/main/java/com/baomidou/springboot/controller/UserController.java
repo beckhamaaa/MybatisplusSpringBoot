@@ -84,9 +84,20 @@ public class UserController {
     public User test3() {
         User user = new User(1L, "王五", AgeEnum.ONE, 1);
         user.setPhone(PhoneEnum.CT);
+        System.out.println("插入前：" + user.toString());
         userService.insertOrUpdate(user);
-        return userService.selectById(1L);
+        user = userService.selectById(1L);
+        System.out.println("更新后：" + user.toString());
+        return user;
     }
+
+    @GetMapping("/like")
+    public Object like() {
+        User user = new User();
+        user.setName("三");
+        return userService.selectList(new EntityWrapper<User>(user));
+    }
+
 
     @GetMapping("/add")
     public Object addUser() {
