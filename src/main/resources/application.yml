@@ -47,8 +47,8 @@ mybatis-plus:
     logic-delete-value: 0
     logic-not-delete-value: 1
     sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
-    #自定义填充策略接口实现
-    #meta-object-handler: com.baomidou.springboot.xxx
+    #自定义填充策略接口实现,不在推荐使用此方式进行配置,请使用自定义bean注入
+    meta-object-handler: com.baomidou.springboot.MyMetaObjectHandler
     #自定义SQL注入器
     #sql-injector: com.baomidou.springboot.xxx
     # SQL 解析缓存，开启后多租户 @SqlParser 注解生效
