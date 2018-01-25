@@ -3,6 +3,11 @@ package com.baomidou.springboot.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.baomidou.mybatisplus.incrementer.H2KeyGenerator;
+import com.baomidou.mybatisplus.incrementer.IKeyGenerator;
+import com.baomidou.mybatisplus.mapper.ISqlInjector;
+import com.baomidou.mybatisplus.mapper.LogicSqlInjector;
+import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
 import com.baomidou.springboot.MyMetaObjectHandler;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -84,8 +89,24 @@ public class MybatisPlusConfig {
     }
 
     @Bean
-    public MyMetaObjectHandler myMetaObjectHandler(){
+    public MetaObjectHandler metaObjectHandler(){
         return new MyMetaObjectHandler();
+    }
+
+    /**
+     * 注入主键生成器
+     */
+    @Bean
+    public IKeyGenerator keyGenerator(){
+        return new H2KeyGenerator();
+    }
+
+    /**
+     * 注入sql注入器
+     */
+    @Bean
+    public ISqlInjector sqlInjector(){
+        return new LogicSqlInjector();
     }
 
 }
