@@ -16,13 +16,16 @@ public class User extends SuperEntity<User> {
 
 
     /**
-     * 名称 condition 注入查询条件【可无】
+     * 名称 , condition 属性设置注入
+     * 等效于 SQL 为：WHERE name LIKE CONCAT('%',s值,'%')
      */
     @TableField(condition = SqlCondition.LIKE)
     private String name;
     /**
-     * 年龄
+     * update 时候注入年龄 + 1
+     * 等效于 SQL 为： update user set age=age+1
      */
+    @TableField(update = "%s+1")
     private AgeEnum age;
     /**
      * 这里故意演示注解可无
