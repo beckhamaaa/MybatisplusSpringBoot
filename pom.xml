@@ -52,7 +52,11 @@
             <artifactId>HikariCP-java7</artifactId>
 			<version>${HikariCP.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
 		<!-- mybatis-plus begin -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
