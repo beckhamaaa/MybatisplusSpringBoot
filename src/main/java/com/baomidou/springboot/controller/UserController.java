@@ -1,13 +1,5 @@
 package com.baomidou.springboot.controller;
 
-import java.util.Date;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -16,6 +8,13 @@ import com.baomidou.springboot.entity.User;
 import com.baomidou.springboot.entity.enums.AgeEnum;
 import com.baomidou.springboot.entity.enums.PhoneEnum;
 import com.baomidou.springboot.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 /**
  * 代码生成器，参考源码测试用例：
